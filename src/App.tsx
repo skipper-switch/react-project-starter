@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom"
 import Providers from "./providers/providers"
-import PageLoader from "./components/common/page-loader"
+import Loader from "./components/common/loader/loader"
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import("./pages/home"))
@@ -53,7 +53,7 @@ const router = createBrowserRouter(
 export function App() {
   return (
     <Providers>
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<Loader topPosition="fixed inset-0" />}>
         <RouterProvider router={router} />
       </Suspense>
     </Providers>
