@@ -1,17 +1,19 @@
-"use client";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import CustomFormField, { FormFieldType } from "@/components/shared/CustomFormField";
-import SubmitButton from "@/components/shared/SubmitButton";
-import { SelectItem } from "@/components/ui/select";
-import { WorkLocation } from "@/constants";
-import { Form } from "../ui/form";
+"use client"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
+import CustomFormField, {
+  FormFieldType,
+} from "@/components/shared/CustomFormField"
+import SubmitButton from "@/components/shared/SubmitButton"
+import { SelectItem } from "@/components/ui/select"
+import { WorkLocation } from "@/constants"
+import { Form } from "../ui/form"
 
 const ProfileSchema = z.object({
   first_name: z.string(),
   file: z.any().nullable(),
-});
+})
 
 const FormData = () => {
   const form = useForm<z.infer<typeof ProfileSchema>>({
@@ -20,11 +22,11 @@ const FormData = () => {
       first_name: "",
       file: null,
     },
-  });
+  })
 
   const onSubmit = (values: z.infer<typeof ProfileSchema>) => {
-    console.log(values);
-  };
+    console.log(values)
+  }
 
   return (
     <div className="mt-6">
@@ -95,7 +97,7 @@ const FormData = () => {
             <SubmitButton
               // clickFn={cancelModal}
               loadingText="Cancelling..."
-              className="w-[150px] h-[50px] text-md cursor-pointer border border-primary hover:bg-white bg-white text-primary"
+              className="text-md h-[50px] w-[150px] cursor-pointer border border-primary bg-white text-primary hover:bg-white"
             >
               Cancel
             </SubmitButton>
@@ -103,7 +105,7 @@ const FormData = () => {
             <SubmitButton
               loadingText="Deleting..."
               // clickFn={handleDelete}
-              className="w-[300px] h-[50px] text-md cursor-pointer bg-red-700 hover:bg-red-700 text-white"
+              className="text-md h-[50px] w-[300px] cursor-pointer bg-red-700 text-white hover:bg-red-700"
             >
               Yes, Delete
             </SubmitButton>
@@ -111,7 +113,7 @@ const FormData = () => {
         </form>
       </Form>
     </div>
-  );
-};
+  )
+}
 
-export default FormData;
+export default FormData
