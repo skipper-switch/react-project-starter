@@ -1,4 +1,3 @@
-import Loader from "@/components/common/loader/loader"
 import SubmitButton from "@/components/shared/SubmitButton"
 import ToastNotification from "@/components/shared/ToastNotification"
 
